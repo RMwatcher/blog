@@ -1,0 +1,8 @@
+/* CSS Variables */
+:root {
+    --background-color: #F7F2E7;
+    --text-color: #2D3E40;
+    --primary-button: #3A7373;
+    --secondary-button: #A1ADA7;
+    --card-colors: #B2BFB7;
+}
