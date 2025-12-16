@@ -1,0 +1,15 @@
+<%- include("partials/header.ejs") %>
+    <% if (locals.name && locals.newSubject && locals.newContent) { %>
+        <h1>
+            <%= name %>
+        </h1>
+        <h2>
+            <%= newSubject %>
+        </h2>
+        <p>
+            <%= newContent %>
+        </p>
+        <% } else { %>
+            <h1>No Post to show</h1>
+            <% } %>
+                <%- include("partials/footer.ejs") %>

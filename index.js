@@ -4,21 +4,13 @@ import bodyParser from "body-parser";
 const app = express();
 const port = 3000;
 
-const userName = "";
+let userName = "";
 let subject = "";
 let content = "";
 
-function createPost (req, res, next) {
-    userName = req.body["uName"];
-    subject = req.body["subject"];
-    content = req.body["content"];
-    next();
-};
-
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-app.use(createPost);
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
     res.render("index.ejs");
@@ -28,8 +20,24 @@ app.get("/create", (req, res) => {
     res.render("create.ejs");
 });
 
+app.get("/blogpost", (req, res) => {
+    res.render("blogpost.ejs", {
+        name : userName,
+        newSubject : subject,
+        newContent : content
+    });
+});
+
 app.post("/submit", (req, res) => {
-    console.log("Your post was submitted.")
+    userName = req.body["uName"];
+    subject = req.body["subject"];
+    content = req.body["content"];
+    
+    console.log("Your post was submitted.");
+    res.render("index.ejs", {
+        name : userName,
+        newSubject : subject
+    });
 });
 
 app.listen(port, () => {

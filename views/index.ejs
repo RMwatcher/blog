@@ -3,5 +3,11 @@
     <h2>Share your Interests and Curiosity for the World to see.</h2>
     <a href="/create"><button>Create Post</button></a>
     <h2>Recent Posts</h2>
-    <p>No Posts at this time.</p>
-    <%- include("partials/footer.ejs") %>
+    <% if (locals.name && locals.newSubject) { %>
+        <%= name %>
+            <%= newSubject %>
+                <% } else { %>
+                    <p>No Posts at this time.</p>
+                    <% } %>
+
+                        <%- include("partials/footer.ejs") %>
