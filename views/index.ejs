@@ -4,10 +4,18 @@
     <a href="/create"><button>Create Post</button></a>
     <h2>Recent Posts</h2>
     <% if (locals.name && locals.newSubject) { %>
-        <%= name %>
-            <%= newSubject %>
-                <% } else { %>
-                    <p>No Posts at this time.</p>
-                    <% } %>
+        <a href="/blogpost">
+            <section class="card">
+                <p>
+                    <%= name %>
+                </p>
+                <p>
+                    <%= newSubject %>
+                </p>
+            </section>
+        </a>
+        <% } else { %>
+            <p>No Posts at this time.</p>
+            <% } %>
 
-                        <%- include("partials/footer.ejs") %>
+                <%- include("partials/footer.ejs") %>
