@@ -1,12 +1,12 @@
 <%- include("partials/header.ejs") %>
     <h1>Create a Post</h1>
     <form action="submit" method="post">
-        <label for="uName">Username:</label><br>
-        <input type="text" name="uName" id="uName" size="40"><br>
-        <label for="subject">Subject:</label><br>
-        <input type="text" name="subject" id="subject" size="40"><br>
+        <label for="title">Title:</label><br>
+        <input type="text" name="title" id="title" size="40" required><br>
+        <label for="author">Author:</label><br>
+        <input type="text" name="author" id="author" size="40" required><br>
         <label for="content">Your Content:</label><br>
-        <textarea name="content" id="content" cols="60" rows="30"></textarea><br>
+        <textarea name="content" id="content" cols="60" rows="30" required></textarea><br>
         <input type="submit" value="Submit">
     </form>
     <%- include("partials/footer.ejs") %>

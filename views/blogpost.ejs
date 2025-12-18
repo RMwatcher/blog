@@ -1,15 +1,17 @@
 <%- include("partials/header.ejs") %>
-    <% if (locals.name && locals.newSubject && locals.newContent) { %>
-        <h1>
-            <%= name %>
-        </h1>
-        <h2>
-            <%= newSubject %>
-        </h2>
-        <p>
-            <%= newContent %>
-        </p>
-        <% } else { %>
-            <h1>No Post to show</h1>
-            <% } %>
-                <%- include("partials/footer.ejs") %>
+    <% if (locals.posts && locals.posts.length> 0) { %>
+        <% posts.forEach( post=> { %>
+            <h1>
+                <%= post.title %>
+            </h1>
+            <h2>
+                <%= post.author %>
+            </h2>
+            <p>
+                <%= post.content %>
+            </p>
+            <% }); %>
+                <% } else { %>
+                    <h1>No Post to show</h1>
+                    <% } %>
+                        <%- include("partials/footer.ejs") %>

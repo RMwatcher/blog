@@ -3,19 +3,24 @@
     <h2>Share your Interests and Curiosity for the World to see.</h2>
     <a href="/create"><button>Create Post</button></a>
     <h2>Recent Posts</h2>
-    <% if (locals.name && locals.newSubject) { %>
-        <a href="/blogpost">
-            <section class="card">
-                <p>
-                    <%= name %>
-                </p>
-                <p>
-                    <%= newSubject %>
-                </p>
-            </section>
-        </a>
-        <% } else { %>
-            <p>No Posts at this time.</p>
-            <% } %>
+    <% if (locals.posts && locals.posts.length> 0) { %>
+        <% posts.forEach(post=> { %>
+            <a href="/blogpost">
+                <section class="card">
+                    <p>
+                        <%= post.title %>
+                    </p>
+                    <p>
+                        <%= post.author %>
+                    </p>
+                    <p>
+                        <%= post.content %>
+                    </p>
+                </section>
+            </a>
+            <% }); %>
+                <% } else { %>
+                    <p>No Posts at this time.</p>
+                    <% } %>
 
-                <%- include("partials/footer.ejs") %>
+                        <%- include("partials/footer.ejs") %>
