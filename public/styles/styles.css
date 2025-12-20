@@ -6,3 +6,13 @@
     --secondary-button: #A1ADA7;
     --card-colors: #B2BFB7;
 }
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.editTrash {
+    width: 25px;
+}

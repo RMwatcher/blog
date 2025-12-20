@@ -18,15 +18,24 @@ app.get("/create", (req, res) => {
     res.render("create.ejs");
 });
 
-app.get("/blogpost", (req, res) => {
-    res.render("blogpost.ejs", { posts : posts });
+app.get("/blogpost/:id", (req, res) => {
+    const postId = req.params.id;
+    const post = posts[postId];
+    if (post) {
+        res.render("blogpost.ejs", { post : post });
+    } else {
+        res.status(404).send("Post not found");
+    }
+});
+
+app.patch("/edit/id", (req, res) => {
+    
 });
 
 app.post("/submit", (req, res) => {
     const { title, author, content } = req.body;    
     console.log("Your post was submitted.");
     posts.push( { title : title, author : author, content : content });
-    console.log(posts);
     res.render("index.ejs", { posts : posts });
 });
 
