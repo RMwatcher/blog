@@ -28,9 +28,15 @@ app.get("/blogpost/:id", (req, res) => {
     }
 });
 
-app.patch("/edit/id", (req, res) => {
-    
+app.put("/update/:id", (req, res) => {
+    // const postId = req.params.id;
+    // const updateBody = req.body;
+
+    // if (update.id !== parseInt(id)) {
+    //     res.status(404).send("Post not found");
+    // };
 });
+
 
 app.post("/submit", (req, res) => {
     const { title, author, content } = req.body;    
