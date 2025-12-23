@@ -1,13 +1,42 @@
 <%- include("partials/header.ejs") %>
     <h1>Edit your Post</h1>
-    <form action="update" id="update" method="post">
-        <label for="title">Title:</label><br>
-        <input type="text" name="title" id="title" size="40" required><br>
-        <label for="author">Author:</label><br>
-        <input type="text" name="author" id="author" size="40" required><br>
-        <label for="content">Your Content:</label><br>
-        <textarea name="content" id="content" cols="60" rows="30" required></textarea><br>
-    </form>
-    <input type="submit" form="update" value="Submit">
-    <a href="/"><button>Cancel</button></a>
-    <%- include("partials/footer.ejs") %>
+    <% if (locals.post) { %>
+        <form id="update" onsubmit="event.preventDefault()">
+            <label for="title">Title:</label><br>
+            <input type="text" name="title" id="title" size="40" value="<%= post.title %>" required><br>
+
+            <label for="author">Author:</label><br>
+            <input type="text" name="author" id="author" size="40" value="<%= post.author %>" required><br>
+
+            <label for="content">Your Content:</label><br>
+            <textarea name="content" id="content" cols="60" rows="30" required><%= post.content %></textarea><br>
+        </form>
+        <input type="button" form="update" value="Submit" onclick="updatePost()">
+        <a href="blogpost.ejs"><button>Cancel</button></a>
+        <% } %>
+
+            <script>
+                const postId = window.location.pathname.split('/').pop();
+
+                function updatePost() {
+                    const formData = {
+                        title: document.getElementById('title').value,
+                        author: document.getElementById('author').value,
+                        content: document.getElementById('content').value
+                    };
+
+                    fetch(`/update/${postId}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            alert('Post updated successfully!');
+                            window.location.href = '/';
+                        })
+                        .catch(err => alert('Error updating post: ' + err));
+                }
+            </script>
+
+            <%- include("partials/footer.ejs") %>
