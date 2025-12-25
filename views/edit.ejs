@@ -1,6 +1,7 @@
 <%- include("partials/header.ejs") %>
     <h1>Edit your Post</h1>
     <% if (locals.post) { %>
+        <!-- Prevents form from submitting HTML other than what's on the form -->
         <form id="update" onsubmit="event.preventDefault()">
             <label for="title">Title:</label><br>
             <input type="text" name="title" id="title" size="40" value="<%= post.title %>" required><br>

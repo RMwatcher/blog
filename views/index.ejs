@@ -1,7 +1,9 @@
 <%- include("partials/header.ejs") %>
-    <h1>The Last Story</h1>
-    <h2>Share your Interests and Curiosity for the World to see.</h2>
-    <a href="/create"><button>Create Post</button></a>
+    <div class="text-center">
+        <h1>The Last Story</h1>
+        <h2>Share your Interests and Curiosity for the World to see.</h2>
+        <a href="/create"><button>Create Post</button></a>
+    </div>
     <h2>Recent Posts</h2>
     <% if (locals.posts && locals.posts.length> 0) { %>
         <% posts.forEach((post, index)=> { %>

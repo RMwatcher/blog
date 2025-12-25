@@ -9,10 +9,10 @@
 
 html {
     scroll-behavior: smooth;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    
 }
 
-.editTrash {
-    width: 25px;
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
