@@ -1,19 +1,23 @@
 <%- include("partials/header.ejs") %>
-    <h1>Edit your Post</h1>
+    <h1 class="my-4">Edit your Post</h1>
     <% if (locals.post) { %>
         <!-- Prevents form from submitting HTML other than what's on the form -->
         <form id="update" onsubmit="event.preventDefault()">
-            <label for="title">Title:</label><br>
-            <input type="text" name="title" id="title" size="40" value="<%= post.title %>" required><br>
-
-            <label for="author">Author:</label><br>
-            <input type="text" name="author" id="author" size="40" value="<%= post.author %>" required><br>
-
-            <label for="content">Your Content:</label><br>
-            <textarea name="content" id="content" cols="60" rows="30" required><%= post.content %></textarea><br>
+            <fieldset class="d-flex flex-column form-group ">
+                <label for="title">Title:</label><br>
+                <input type="text" name="title" id="title" class="col-lg-6 col-sm-12" value="<%= post.title %>"
+                    required><br>
+                <label for="author">Author:</label><br>
+                <input type="text" name="author" id="author" class="col-lg-6 col-sm-12" value="<%= post.author %>"
+                    required><br>
+                <label for="content">Your Content:</label><br>
+                <textarea name="content" id="content" class="col-lg-6 col-sm-12" cols="40" rows="25"
+                    required><%= post.content %></textarea><br>
+            </fieldset>
         </form>
-        <input type="button" form="update" value="Submit" onclick="updatePost()">
-        <a href="blogpost.ejs"><button>Cancel</button></a>
+        <input type="button" form="update" value="Submit" class="btn btn-outline-success submit-btn"
+            onclick="updatePost()">
+        <a href="../"><button class="btn btn-outline-dark">Cancel</button></a>
         <% } %>
 
             <script>

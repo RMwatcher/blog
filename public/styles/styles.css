@@ -1,18 +1,69 @@
 /* CSS Variables */
 :root {
-    --background-color: #F7F2E7;
+    --background-color: #fcfbf9;
     --text-color: #2D3E40;
     --primary-button: #3A7373;
-    --secondary-button: #A1ADA7;
-    --card-colors: #B2BFB7;
+    --secondary-button: #889c92;
+    --card-colors: #c4d4ca;
 }
 
 html {
     scroll-behavior: smooth;
-    
 }
 
 body {
     background-color: var(--background-color);
     color: var(--text-color);
+}
+
+.btn {
+    background-color: var(--primary-button);
+    color: var(--background-color);
+}
+
+.btn-outline-dark {
+    background-color: var(--secondary-button);
+}
+
+.edit-btn, .submit-btn {
+    margin-right: 3%;
+}
+
+.card {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: var(--card-colors);
+    margin-bottom: 6%;
+    & img {
+        border-radius: 5px 0 0 5px;
+    }
+
+    & .card-content {
+        padding: 14px;
+    }
+}
+
+footer p {
+    margin: 6% 0;
+}
+
+@media (width <= 600px) {
+    main {
+        margin: 0 7%;
+        text-align: center;
+    }
+
+    figcaption img {
+        background-image: url("/images/david-becker-18SaOtRthj0-unsplash(2).jpg");
+    }
+
+    .card {
+        display: block;
+    }
+}
+
+/* Preserve paragraph breaks and whitespace in post content */
+.post-content {
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }

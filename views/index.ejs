@@ -1,20 +1,28 @@
 <%- include("partials/header.ejs") %>
     <div class="text-center">
-        <h1>The Last Story</h1>
-        <h2>Share your Interests and Curiosity for the World to see.</h2>
-        <a href="/create"><button>Create Post</button></a>
+        <h1 class="my-4">The Last Story</h1>
+        <h2 class="my-4">Share your Interests and Curiosity for the World to see.</h2>
+        <p class="my-4">Here is where you'll see all the post that was created so far if any. If you want to create a
+            post of your
+            own, use the button below that'll take you to another page that require you to fill out a form. Afterwards,
+            you'll see the post you created here in the homepage</p>
+        <a href="/create"><button class="btn btn-outline-success my-4">Create Post</button></a>
     </div>
-    <h2>Recent Posts</h2>
+    <h2 class="mb-4">Recent Posts</h2>
     <% if (locals.posts && locals.posts.length> 0) { %>
         <% posts.forEach((post, index)=> { %>
             <a href="/blogpost/<%= index %>">
                 <section class="card">
-                    <p>
-                        <%= post.title %>
-                    </p>
-                    <p>
-                        <%= post.author %>
-                    </p>
+                    <img src="/images/sunder-muthukumaran-fd6K_OFlnRA-unsplash(1).jpg"
+                        alt="four sided cube by Sunder Muthukumaran on Unsplash">
+                    <div class="card-content">
+                        <p>
+                            <%= post.title %>
+                        </p>
+                        <p>
+                            <%= post.author %>
+                        </p>
+                    </div>
                 </section>
             </a>
             <% }); %>

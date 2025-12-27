@@ -45,7 +45,7 @@ app.put("/update/:id", (req, res) => {
     const postId = Number.parseInt(req.params.id);
     const title = req.body["title"];
     const author = req.body["author"];
-    const content  = req.body["content "];
+    const content  = req.body["content"];
     console.log("Post has been updated");
     if (postId >= 0 && postId < posts.length) {
         posts[postId] = { title, author, content };

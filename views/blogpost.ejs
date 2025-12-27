@@ -1,26 +1,34 @@
 <%- include("partials/header.ejs") %>
+    <figure>
+        <img src="/images/david-becker-18SaOtRthj0-unsplash(1).jpg" width="100%" alt="ocean waves splashing onto rocks">
+        <figcaption>Photo by <a
+                href="https://unsplash.com/@beckerworks?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">David
+                Becker</a> on <a
+                href="https://unsplash.com/photos/crashing-waves-on-rocky-shore-at-sunset-18SaOtRthj0?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+        </figcaption>
+    </figure>
     <div class="button-container">
         <% if (locals.postId) { %>
-            <a href="/edit/<%= postId %>"><button class="edit-btn">Edit</button></a>
-            <button class="delete-btn" onclick="deletePost('<%= postId %>')">Delete</button>
+            <a href="/edit/<%= postId %>"><button class="btn btn-outline-success edit-btn">Edit</button></a>
+            <button class="btn btn-outline-dark delete-btn" onclick="deletePost('<%= postId %>')">Delete</button>
             <% }%>
     </div>
 
     <% if (locals.post) { %>
-        <h1>
+        <h1 class="mt-3">
             <%= post.title %>
         </h1>
         <h2>
-            <%= post.author %>
+            By <%= post.author %>
         </h2>
-        <p>
+        <div class="post-content">
             <%= post.content %>
-        </p>
+        </div>
         <% } else { %>
             <h1>No Post to show</h1>
             <% } %>
 
-                <a href="/"><button>Go Back</button></a>
+                <a href="/"><button class="btn btn-outline-dark">Go Back</button></a>
 
                 <script>
                     function deletePost(postId) {
